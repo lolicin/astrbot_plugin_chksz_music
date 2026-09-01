@@ -1,0 +1,42 @@
+{
+  "api_key": {
+    "description": "ChKSz API Key（chksz_ 开头），必填，留空无法使用",
+    "type": "string",
+    "default": ""
+  },
+  "platform": {
+    "description": "默认音源：qq / 163 / kugou（分别对应 QQ音乐 / 网易云 / 酷狗）",
+    "type": "string",
+    "default": "qq"
+  },
+  "send_mode": {
+    "description": "发送方式。url=把音频直链交给协议端自己下载（默认，不占 WebSocket 带宽，推荐）；file=AstrBot 先下载再走文件服务（需配置 callback_api_base，Docker 部署必配）；record=发语音条，音频会被 base64 塞进 WebSocket，仅小文件可用，超限自动降级为 url",
+    "type": "string",
+    "default": "url"
+  },
+  "quality": {
+    "description": "音质，留空则用平台默认值（QQ/酷狗=320k，网易=exhigh）。QQ/酷狗可填 128k/320k/flac/hires/master；网易可填 standard/exhigh/lossless/hires/jyeffect/sky/jymaster",
+    "type": "string",
+    "default": ""
+  },
+  "max_record_mb": {
+    "description": "send_mode=record 时的体积上限（MB）。超过就自动改用直链发送，避免 base64 撑爆 WebSocket 连接（NapCat 会报 Max payload size exceeded）",
+    "type": "int",
+    "default": 1
+  },
+  "max_size_mb": {
+    "description": "send_mode=file/record 时，AstrBot 自己下载的体积上限（MB）",
+    "type": "int",
+    "default": 60
+  },
+  "select_timeout": {
+    "description": "列出候选后等待用户回复序号的秒数，超时自动取消",
+    "type": "int",
+    "default": 60
+  },
+  "search_count": {
+    "description": "搜索结果展示条数（1-10）。序号可以超出展示条数，只要在搜索结果总数内都有效",
+    "type": "int",
+    "default": 5
+  }
+}

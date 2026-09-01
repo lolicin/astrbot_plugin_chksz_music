@@ -1,0 +1,11 @@
+name: astrbot_plugin_chksz_music
+display_name: ChKSz 多平台点歌
+desc: ChKSz 多平台音乐点歌插件，搜索并发送音乐文件，支持 QQ 音乐 / 网易云 / 酷狗在线切换音源
+short_desc: 多平台点歌，支持在线切换音源
+version: v1.1.0
+author: Atri
+repo: ""
+support_platforms:
+  - aiocqhttp
+  - qq_official
+  - telegram
